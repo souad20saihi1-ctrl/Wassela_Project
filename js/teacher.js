@@ -710,10 +710,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     ar: "الرياضيات"
                 },
                 "Computer Science": {
-                    en: "Computer Science",
-                    fr: "Informatique",
-                    ar: "علوم الحاسوب"
-                }
+    en: "Computer Science",
+    fr: "Informatique",
+    ar: "علوم الحاسوب"
+},
+"Other": {
+    en: "Other",
+    fr: "Autre",
+    ar: "أخرى"
+},
+"Select category": {
+    en: "Select category",
+    fr: "Sélectionner une catégorie",
+    ar: "اختر الفئة"
+}
+  
             }
         );
 
@@ -730,11 +741,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     fr: "Intermédiaire",
                     ar: "متوسط"
                 },
-                "Advanced": {
-                    en: "Advanced",
-                    fr: "Avancé",
-                    ar: "متقدم"
-                }
+              "Advanced": {
+    en: "Advanced",
+    fr: "Avancé",
+    ar: "متقدم"
+},
+"Select level": {
+    en: "Select level",
+    fr: "Sélectionner un niveau",
+    ar: "اختر المستوى"
+} 
             }
         );
 

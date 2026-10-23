@@ -3005,3 +3005,128 @@ ul {
         height: 230px;
     }
 }
+
+/* =========================================================
+   WASSLA — CARD SEPARATION & 3D WELCOME LAYOUT FIX
+   ========================================================= */
+
+/* Keep the main dashboard content inside its own space */
+.teacher-content {
+    min-width: 0;
+    width: 100%;
+}
+
+/* Keep the welcome text and 3D book side by side */
+.welcome-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-width: 0;
+    isolation: isolate;
+}
+
+.welcome-card .welcome-content {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.welcome-card .welcome-visual {
+    flex: 0 1 360px;
+    width: 100%;
+    min-width: 0;
+    max-width: 360px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Preserve the interactive 3D model card */
+.wassla-model-card {
+    width: 100%;
+    max-width: 360px;
+    min-width: 0;
+    margin-left: auto;
+}
+
+/* Separate dashboard cards clearly */
+.stats-grid,
+.dashboard-grid,
+.course-grid,
+.resource-grid,
+.session-grid,
+.student-summary-grid,
+.progress-overview {
+    align-items: stretch;
+    gap: 20px;
+}
+
+.stat-card,
+.dashboard-card,
+.course-card,
+.resource-card,
+.session-card,
+.mini-stat-card,
+.progress-main-card,
+.ai-progress-card,
+.form-card,
+.settings-card {
+    min-width: 0;
+    border-radius: 14px;
+    border: 1px solid #e4eae7;
+    box-shadow: 0 4px 14px rgba(31, 41, 51, 0.06);
+}
+
+/* Ensure the cards don't visually blend into each other */
+.dashboard-card,
+.stat-card,
+.course-card,
+.resource-card,
+.session-card,
+.mini-stat-card,
+.progress-main-card,
+.ai-progress-card,
+.form-card,
+.settings-card {
+    background-color: #ffffff;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .welcome-card {
+        gap: 12px;
+    }
+
+    .welcome-card .welcome-visual {
+        flex: 0 1 300px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 650px) {
+    .welcome-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .welcome-card .welcome-visual {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .wassla-model-card {
+        max-width: 100%;
+    }
+
+    .stats-grid,
+    .dashboard-grid,
+    .course-grid,
+    .resource-grid,
+    .session-grid,
+    .student-summary-grid,
+    .progress-overview {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}

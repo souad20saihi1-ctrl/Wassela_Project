@@ -182,8 +182,18 @@ document.addEventListener("DOMContentLoaded", () => {
             "Language changed to":
                 "Language changed to",
 
-            "Course is ready to manage.":
-                "Course is ready to manage."
+           "Course is ready to manage.":
+    "Course is ready to manage.",
+
+"Course updated successfully!":
+    "Course updated successfully!",
+
+"Course not found. Please try again.":
+    "Course not found. Please try again.",
+
+"This is a demo course and cannot be edited yet.":
+    "This is a demo course and cannot be edited yet.",
+
         },
 
         /* ---------------- FRENCH ---------------- */
@@ -297,10 +307,18 @@ document.addEventListener("DOMContentLoaded", () => {
             "Language changed to":
                 "Langue changée en",
 
-            "Course is ready to manage.":
-                "Le cours est prêt à être géré."
-        },
+           "Course is ready to manage.":
+    "Le cours est prêt à être géré.",
 
+"Course updated successfully!":
+    "Cours modifié avec succès !",
+
+"Course not found. Please try again.":
+    "Cours introuvable. Veuillez réessayer.",
+
+"This is a demo course and cannot be edited yet.":
+    "Ce cours de démonstration ne peut pas encore être modifié.",
+        },
         /* ---------------- ARABIC ---------------- */
 
         ar: {
@@ -472,11 +490,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             "Language changed to":
                 "تم تغيير اللغة إلى",
+"Course is ready to manage.":
+    "الدورة جاهزة للإدارة.",
 
-            "Course is ready to manage.":
-                "الدورة جاهزة للإدارة."
-        }
-    };
+"Course updated successfully!":
+    "تم تعديل الدورة بنجاح!",
+
+"Course not found. Please try again.":
+    "لم يتم العثور على الدورة. يرجى المحاولة مجددًا.",
+
+"This is a demo course and cannot be edited yet.":
+    "لا يمكن تعديل هذه الدورة التجريبية حاليًا.",
+           },
+};
 
     /* =========================================================
        BUILD REVERSE TRANSLATION MAP
@@ -1407,16 +1433,23 @@ let editingCourseId = null;
             </button>
         `;
 
-       const actionButton = $(".course-action", article);
+const actionButton = $(".course-action", article);
 
 if (actionButton) {
-    actionButton.setAttribute("aria-label", "Edit Course");
-    actionButton.title = "Edit Course";
+    actionButton.setAttribute(
+        "aria-label",
+        getCourseLabel("Edit Course")
+    );
+
+    actionButton.title =
+        getCourseLabel("Edit Course");
 
     actionButton.addEventListener("click", () => {
         if (course.id == null) {
             showToast(
-                "This is a demo course and cannot be edited yet."
+                translateText(
+                    "This is a demo course and cannot be edited yet."
+                )
             );
             return;
         }
@@ -1437,7 +1470,9 @@ if (actionButton) {
 
         if (submitButton) {
             submitButton.innerHTML =
-                '<i class="fa-solid fa-floppy-disk"></i> Save Changes';
+                `<i class="fa-solid fa-floppy-disk"></i> ${
+                    escapeHTML(getCourseLabel("Save Changes"))
+                }`;
         }
 
         showSection("create-course");
@@ -1447,6 +1482,8 @@ if (actionButton) {
 
 return article;
     }
+
+       
     /* =========================================================
        REFRESH COURSE CARDS
        ========================================================= */
@@ -1750,7 +1787,9 @@ if (courseForm) {
 
             if (index === -1) {
                 editingCourseId = null;
-                showToast("Course not found. Please try again.");
+                showToast(
+    translateText("Course not found. Please try again.")
+);
                 return;
             }
 
@@ -1764,7 +1803,9 @@ if (courseForm) {
 
             editingCourseId = null;
 
-            showToast("Course updated successfully!");
+            showToast(
+    translateText("Course updated successfully!")
+);
         } else {
             const newCourse = {
                 id: Date.now(),
@@ -1790,9 +1831,11 @@ if (courseForm) {
         );
 
         if (submitButton) {
-            submitButton.innerHTML =
-                '<i class="fa-solid fa-plus"></i> Create Course';
-        }
+    submitButton.innerHTML =
+        `<i class="fa-solid fa-plus"></i> ${
+            escapeHTML(getCourseLabel("Create Course"))
+        }`;
+}
 
         setTimeout(() => {
             showSection("courses");

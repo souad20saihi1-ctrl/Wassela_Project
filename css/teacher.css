@@ -2824,3 +2824,158 @@ ul {
 .sidebar-brand .brand-link::after {
     content: none !important;
 }
+
+/* ==========================================
+   WASSLA AI — FUTURISTIC VISUAL LAYER
+   Add at the VERY END of teacher.css
+   ========================================== */
+
+:root {
+    --ai-glow: rgba(65, 190, 139, 0.16);
+    --ai-border: rgba(47, 143, 104, 0.18);
+    --ai-mint: #dff8ec;
+    --ai-deep: #145c43;
+}
+
+/* Subtle intelligent background */
+body {
+    background:
+        radial-gradient(
+            circle at 85% 8%,
+            rgba(92, 202, 157, 0.10),
+            transparent 28rem
+        ),
+        radial-gradient(
+            circle at 12% 75%,
+            rgba(126, 210, 180, 0.07),
+            transparent 25rem
+        ),
+        #f5f9f7;
+}
+
+/* Premium glass-like topbar */
+.teacher-topbar {
+    background: rgba(248, 253, 250, 0.88) !important;
+    border-bottom: 1px solid var(--ai-border) !important;
+    box-shadow: 0 8px 30px rgba(25, 75, 54, 0.055) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* Futuristic welcome panel */
+.welcome-card {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(177, 255, 220, 0.20),
+            transparent 14rem
+        ),
+        linear-gradient(
+            125deg,
+            #124d3a 0%,
+            #237b59 52%,
+            #2f9a70 100%
+        );
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+        0 18px 45px rgba(31, 119, 83, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+/* Add a subtle technical grid to the welcome panel */
+.welcome-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.045) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+    mask-image: linear-gradient(
+        90deg,
+        transparent,
+        black
+    );
+}
+
+/* Make dashboard cards feel more refined */
+.stat-card,
+.dashboard-card,
+.course-card,
+.form-card,
+.mini-stat-card,
+.progress-main-card,
+.ai-progress-card,
+.session-card,
+.resource-card,
+.settings-card {
+    border-color: rgba(47, 143, 104, 0.13);
+    box-shadow: 0 5px 20px rgba(25, 65, 48, 0.035);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.stat-card:hover,
+.dashboard-card:hover,
+.course-card:hover,
+.resource-card:hover {
+    border-color: rgba(47, 143, 104, 0.27);
+    box-shadow:
+        0 12px 28px rgba(25, 95, 65, 0.085),
+        0 0 0 3px rgba(75, 190, 139, 0.035);
+}
+
+/* AI insight panel */
+.ai-insights-card {
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(104, 207, 161, 0.13),
+            transparent 15rem
+        ),
+        linear-gradient(145deg, #f0faf5, #ffffff 70%);
+}
+
+/* Soft futuristic icon treatment */
+.stat-icon,
+.ai-icon,
+.course-mini-icon,
+.resource-icon {
+    box-shadow: inset 0 0 0 1px rgba(47, 143, 104, 0.055);
+}
+
+/* Cleaner inputs */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.table-search:focus {
+    border-color: #46ad7e;
+    box-shadow:
+        0 0 0 4px rgba(70, 173, 126, 0.10),
+        0 4px 14px rgba(47, 143, 104, 0.05);
+}
+
+/* Respect users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+

@@ -2979,3 +2979,180 @@ body {
     }
 }
 
+/* =========================================================
+   WASSLA — HYBRID 3D WELCOME EXPERIENCE
+   ========================================================= */
+
+.welcome-card {
+    isolation: isolate;
+    min-height: 245px;
+}
+
+.welcome-card h2 {
+    color: #ffffff;
+    font-size: 29px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.welcome-card h2 span {
+    color: #c9f5df;
+}
+
+.welcome-card p {
+    max-width: 500px;
+    line-height: 1.8;
+}
+
+.welcome-visual {
+    position: relative;
+    z-index: 2;
+    width: min(38%, 310px);
+    min-width: 220px;
+    flex-shrink: 0;
+}
+
+.welcome-3d-frame {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    isolation: isolate;
+}
+
+.welcome-3d-model {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 220px;
+    background: transparent;
+    --poster-color: transparent;
+    outline: none;
+}
+
+.welcome-orbit {
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(220, 255, 237, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.welcome-orbit-one {
+    width: 215px;
+    height: 150px;
+}
+
+.welcome-orbit-two {
+    width: 175px;
+    height: 205px;
+    transform: translate(-50%, -50%) rotate(35deg);
+    border-color: rgba(220, 255, 237, 0.18);
+}
+
+.welcome-3d-label {
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    background: rgba(14, 67, 48, 0.72);
+    color: #e7fff1;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+}
+
+.welcome-3d-label i {
+    color: #a8efc8;
+}
+
+/* Keyboard accessibility */
+.welcome-3d-model:focus-visible {
+    outline: 2px solid #c9f5df;
+    outline-offset: 4px;
+    border-radius: 12px;
+}
+
+/* Responsive layout */
+@media (max-width: 800px) {
+    .welcome-card {
+        gap: 10px;
+    }
+
+    .welcome-card h2 {
+        font-size: 23px;
+    }
+
+    .welcome-visual {
+        width: 220px;
+        min-width: 180px;
+    }
+
+    .welcome-3d-frame,
+    .welcome-3d-model {
+        height: 180px;
+    }
+
+    .welcome-orbit-one {
+        width: 165px;
+        height: 120px;
+    }
+
+    .welcome-orbit-two {
+        width: 135px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 560px) {
+    .welcome-card {
+        align-items: flex-start;
+    }
+
+    .welcome-visual {
+        width: 115px;
+        min-width: 115px;
+        align-self: center;
+    }
+
+    .welcome-3d-frame,
+    .welcome-3d-model {
+        height: 145px;
+    }
+
+    .welcome-orbit-one {
+        width: 105px;
+        height: 85px;
+    }
+
+    .welcome-orbit-two {
+        width: 85px;
+        height: 115px;
+    }
+
+    .welcome-3d-label {
+        font-size: 8px;
+        padding: 5px 7px;
+    }
+}
+
+@media (max-width: 380px) {
+    .welcome-visual {
+        display: none;
+    }
+}

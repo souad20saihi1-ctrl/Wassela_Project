@@ -3742,3 +3742,207 @@ body {
 .nav-item.active::before {
   content: "";
   position: absolute;
+ 
+/* WASSLA — EMERALD GLOWING BOOK */
+.wassla-glow-book {
+  position: relative;
+  width: 100%;
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  perspective: 900px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 60%,
+      rgba(50, 210, 139, .13), transparent 58%);
+}
+
+.wassla-glow-book .book-aura {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: #27e99a;
+  filter: blur(75px);
+  opacity: .34;
+  animation: bookAura 3s ease-in-out infinite alternate;
+}
+
+.wassla-glow-book .glow-book {
+  position: relative;
+  width: 210px;
+  height: 135px;
+  transform-style: preserve-3d;
+  transform: rotateX(12deg) rotateY(-7deg);
+  animation: bookFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 22px 24px rgba(0, 0, 0, .2));
+}
+
+.wassla-glow-book .book-page {
+  position: absolute;
+  top: 12px;
+  width: 102px;
+  height: 112px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 13px,
+      rgba(25, 112, 76, .13) 14px 15px
+    ),
+    linear-gradient(145deg, #ffffff, #d9f8e8 80%, #a6e8c5);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow:
+    inset 0 -7px 12px rgba(16, 120, 76, .12),
+    0 0 18px rgba(56, 255, 173, .18);
+}
+
+.wassla-glow-book .page-left {
+  left: 4px;
+  border-radius: 8px 3px 4px 12px;
+  transform-origin: right center;
+  transform: rotateY(-23deg) skewY(4deg);
+}
+
+.wassla-glow-book .page-right {
+  right: 4px;
+  border-radius: 3px 8px 12px 4px;
+  transform-origin: left center;
+  transform: rotateY(23deg) skewY(-4deg);
+}
+
+.wassla-glow-book .book-spine {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 13px;
+  width: 9px;
+  height: 110px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #198454, #d4ffe8, #198454);
+  border-radius: 50%;
+  box-shadow: 0 0 16px #4dffb0;
+}
+
+.wassla-glow-book .book-light {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: -55px;
+  width: 5px;
+  height: 105px;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, #baffd8, #52ffb1, transparent);
+  box-shadow: 0 0 20px 7px rgba(67, 255, 171, .6);
+  filter: blur(3px);
+  animation: bookBeam 2s ease-in-out infinite alternate;
+}
+
+.wassla-glow-book .book-rays {
+  position: absolute;
+  z-index: -1;
+  top: 12%;
+  left: 50%;
+  width: 240px;
+  height: 220px;
+  transform: translateX(-50%);
+  background: repeating-conic-gradient(
+    from -8deg at 50% 75%,
+    transparent 0deg 12deg,
+    rgba(82, 255, 177, .13) 13deg 14deg,
+    transparent 15deg 25deg
+  );
+  mask-image: radial-gradient(ellipse, black, transparent 68%);
+  animation: raysTurn 30s linear infinite;
+}
+
+.wassla-glow-book .book-orbit {
+  position: absolute;
+  width: 260px;
+  height: 90px;
+  border: 1px solid rgba(76, 239, 164, .38);
+  border-radius: 50%;
+  transform: rotate(-19deg);
+  pointer-events: none;
+}
+
+.wassla-glow-book .orbit-two {
+  width: 220px;
+  height: 110px;
+  transform: rotate(35deg);
+  border-color: rgba(190, 255, 220, .28);
+}
+
+.wassla-glow-book .book-spark {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c6ffe0;
+  box-shadow: 0 0 12px 3px #4dffad;
+  animation: sparkRise 3s ease-in-out infinite;
+}
+
+.wassla-glow-book .spark-one {
+  top: 29%;
+  left: 34%;
+}
+
+.wassla-glow-book .spark-two {
+  top: 42%;
+  right: 29%;
+  animation-delay: -1s;
+}
+
+.wassla-glow-book .spark-three {
+  top: 20%;
+  right: 40%;
+  animation-delay: -2s;
+}
+
+.wassla-glow-book .book-caption {
+  position: absolute;
+  bottom: 20px;
+  color: #23865e;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+@keyframes bookFloat {
+  0%, 100% { transform: translateY(0) rotateX(12deg) rotateY(-7deg); }
+  50% { transform: translateY(-10px) rotateX(17deg) rotateY(7deg); }
+}
+
+@keyframes bookAura {
+  from { opacity: .2; transform: scale(.85); }
+  to { opacity: .48; transform: scale(1.18); }
+}
+
+@keyframes bookBeam {
+  from { opacity: .55; height: 75px; }
+  to { opacity: 1; height: 115px; }
+}
+
+@keyframes raysTurn {
+  to { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes sparkRise {
+  0%, 100% { transform: translateY(12px) scale(.7); opacity: .3; }
+  50% { transform: translateY(-22px) scale(1.3); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wassla-glow-book *,
+  .wassla-glow-book *::before {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .wassla-glow-book { min-height: 280px; }
+  .wassla-glow-book .glow-book { transform: scale(.85); }
+}
+  

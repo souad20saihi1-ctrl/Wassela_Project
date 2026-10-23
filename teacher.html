@@ -432,11 +432,31 @@
 
                         </div>
 
-                        <div class="welcome-visual">
-                            <div class="welcome-icon">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                            </div>
-                        </div>
+                       <div class="welcome-visual">
+    <div class="welcome-3d-frame">
+        <div class="welcome-orbit welcome-orbit-one"></div>
+        <div class="welcome-orbit welcome-orbit-two"></div>
+
+        <model-viewer
+            class="welcome-3d-model"
+            src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
+            alt="Interactive 3D astronaut representing learning and innovation"
+            camera-controls
+            auto-rotate
+            rotation-per-second="18deg"
+            interaction-prompt="none"
+            shadow-intensity="1"
+            exposure="1.1"
+            camera-orbit="0deg 75deg 3m"
+            loading="lazy">
+        </model-viewer>
+
+        <span class="welcome-3d-label">
+            <i class="fa-solid fa-cube"></i>
+            Interactive 3D
+        </span>
+    </div>
+</div>
 
                     </div>
 

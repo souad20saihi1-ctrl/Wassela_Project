@@ -3130,3 +3130,119 @@ ul {
         gap: 14px;
     }
 }
+
+/* ==========================================
+   WASSLA — DASHBOARD LAYOUT REPAIR
+   Fix horizontal overflow and separated cards
+   ========================================== */
+
+#dashboard,
+#dashboard * {
+    box-sizing: border-box;
+}
+
+#dashboard {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+}
+
+#dashboard .welcome-card {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) !important;
+    align-items: center;
+    gap: 28px !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 32px !important;
+    overflow: hidden;
+}
+
+#dashboard .welcome-content,
+#dashboard .welcome-visual {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+#dashboard .welcome-content {
+    overflow-wrap: anywhere;
+}
+
+#dashboard .welcome-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dashboard .wassla-model-card {
+    width: 100%;
+    max-width: 420px;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#dashboard .wassla-model-card model-viewer {
+    display: block;
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
+}
+
+#dashboard .stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    width: 100%;
+    min-width: 0;
+    margin-top: 22px !important;
+}
+
+#dashboard .stats-grid > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+#dashboard .welcome-card,
+#dashboard .stats-grid > *,
+#dashboard .dashboard-grid > *,
+#dashboard .course-card,
+#dashboard .stat-card {
+    border-radius: 18px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+    #dashboard .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    #dashboard .welcome-card {
+        gap: 20px !important;
+        padding: 24px !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    #dashboard .welcome-card {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 20px !important;
+        padding: 20px !important;
+    }
+
+    #dashboard .welcome-visual {
+        min-height: 240px;
+    }
+
+    #dashboard .wassla-model-card model-viewer {
+        height: 250px;
+    }
+
+    #dashboard .stats-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 14px !important;
+    }
+}

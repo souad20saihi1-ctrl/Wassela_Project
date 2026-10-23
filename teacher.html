@@ -19,6 +19,11 @@
 
     <!-- Teacher Styles -->
     <link rel="stylesheet" href="css/teacher.css">
+   <!-- 3D Book Viewer -->
+<script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js">
+</script> 
 </head>
 
 <body>
@@ -434,26 +439,32 @@
 
                       
 <div class="welcome-visual">
-  <div class="wassla-glow-book" aria-label="Wassla glowing open book">
-    <div class="book-aura"></div>
-    <div class="book-rays"></div>
+    <div class="wassla-model-card">
 
-    <div class="book-spark spark-one"></div>
-    <div class="book-spark spark-two"></div>
-    <div class="book-spark spark-three"></div>
-    <div class="book-spark spark-four"></div>
+        <span class="model-badge">
+            <i class="fa-solid fa-book-open"></i>
+            WASSLA 3D LIBRARY
+        </span>
 
-    <div class="glow-book">
-      <div class="book-page page-left"></div>
-      <div class="book-page page-right"></div>
-      <div class="book-spine"></div>
-      <div class="book-light"></div>
+        <model-viewer
+            id="wasslaBookModel"
+            src="assets/open-notebook.glb"
+            alt="Interactive 3D open book for Wassla"
+            camera-controls
+            auto-rotate
+            rotation-per-second="15deg"
+            shadow-intensity="1"
+            exposure="1.1"
+            environment-image="neutral"
+            interaction-prompt="auto"
+            loading="eager">
+        </model-viewer>
+
+        <p class="model-caption">
+            Knowledge in Motion
+        </p>
+
     </div>
-
-    <div class="book-orbit orbit-one"></div>
-    <div class="book-orbit orbit-two"></div>
-    <span class="book-caption">WASSLA · KNOWLEDGE IN MOTION</span>
-  </div>
 </div>
  
 

@@ -3646,3 +3646,99 @@ body {
         border-radius: 14px;
     }
 }
+/* =========================================================
+   WASSLA TEACHER DASHBOARD — HYBRID 3D POLISH
+   Append this file AFTER css/teacher.css, or paste at its end.
+   Keeps existing HTML/JS selectors and behaviors intact.
+   ========================================================= */
+
+:root {
+  --w-green: #2f8f68;
+  --w-green-dark: #1d6047;
+  --w-green-deep: #123c2c;
+  --w-green-soft: #eaf7f0;
+  --w-green-pale: #f5fbf7;
+  --w-ink: #18382b;
+  --w-muted: #71857a;
+  --w-line: #dfebe4;
+  --w-surface: rgba(255, 255, 255, .88);
+  --w-shadow: 0 16px 38px rgba(26, 76, 53, .09);
+  --w-shadow-hover: 0 22px 46px rgba(26, 76, 53, .15);
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+body {
+  color: var(--w-ink);
+  background:
+    radial-gradient(ellipse at 88% 0%, rgba(80, 177, 128, .09), transparent 34%),
+    #f5f8f6;
+}
+
+.teacher-app { background: transparent; }
+.teacher-main { min-width: 0; }
+
+.teacher-sidebar {
+  background: linear-gradient(165deg, #fff 0%, #f7fbf8 100%);
+  border-right: 1px solid rgba(47, 143, 104, .13);
+  box-shadow: 10px 0 34px rgba(24, 68, 47, .035);
+}
+
+.sidebar-brand { padding-bottom: 22px; }
+.brand-link { gap: 12px; }
+.sidebar-logo {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  padding: 5px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #fff, #e8f5ed);
+  box-shadow: 0 7px 18px rgba(35, 112, 82, .12), inset 0 1px 0 #fff;
+}
+.brand-text strong { color: var(--w-green-dark); letter-spacing: -.035em; }
+.brand-text span { color: #81958a; }
+
+.sidebar-profile {
+  border: 1px solid #e4eee8;
+  background: linear-gradient(135deg, #f8fcf9, #edf7f1);
+  border-radius: 18px;
+  padding: 13px;
+  margin: 4px 14px 22px;
+}
+.teacher-sidebar .profile-avatar,
+.sidebar-profile .profile-avatar {
+  background: linear-gradient(145deg, #3ca77a, #1e684b);
+  color: white;
+  box-shadow: 0 6px 14px rgba(34, 112, 79, .22);
+}
+.profile-info strong { color: var(--w-ink); }
+.profile-info span { color: #809187; }
+
+.nav-label {
+  color: #9aaca2;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+}
+.nav-item {
+  position: relative;
+  border-radius: 13px;
+  margin: 3px 10px;
+  transition: background .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+.nav-item i { transition: transform .22s ease; }
+.nav-item:hover {
+  background: #eef8f2;
+  color: var(--w-green-dark);
+  transform: translateX(3px);
+}
+.nav-item:hover i { transform: scale(1.08); }
+.nav-item.active {
+  color: #fff;
+  background: linear-gradient(115deg, #2f956b, #247451);
+  box-shadow: 0 9px 20px rgba(38, 125, 87, .22), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.nav-item.active::before {
+  content: "";
+  position: absolute;

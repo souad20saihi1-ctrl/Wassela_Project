@@ -3156,3 +3156,493 @@ body {
         display: none;
     }
 }
+
+/* =========================================================
+   WASSLA — HYBRID 3D INTERFACE V1
+   Adds depth to the whole dashboard without replacing
+   existing components or JavaScript functionality.
+   ========================================================= */
+
+:root {
+    --w3d-green: #2f8f68;
+    --w3d-deep: #164d3a;
+    --w3d-mint: #bff3d8;
+    --w3d-line: rgba(47, 143, 104, 0.16);
+    --w3d-shadow:
+        0 12px 28px rgba(24, 73, 51, 0.07),
+        0 3px 8px rgba(24, 73, 51, 0.035);
+    --w3d-shadow-hover:
+        0 22px 42px rgba(24, 73, 51, 0.13),
+        0 8px 16px rgba(24, 73, 51, 0.06);
+}
+
+/* Main workspace: subtle atmospheric depth */
+body {
+    background:
+        radial-gradient(
+            ellipse at 82% 12%,
+            rgba(117, 213, 170, 0.13),
+            transparent 34rem
+        ),
+        radial-gradient(
+            ellipse at 8% 85%,
+            rgba(170, 226, 199, 0.12),
+            transparent 30rem
+        ),
+        #f4f8f6;
+}
+
+.teacher-main {
+    position: relative;
+    isolation: isolate;
+}
+
+.teacher-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Sidebar: layered surface */
+.teacher-sidebar {
+    background: rgba(255, 255, 255, 0.96);
+    border-right-color: rgba(47, 143, 104, 0.14);
+    box-shadow: 8px 0 28px rgba(25, 75, 54, 0.035);
+}
+
+.sidebar-brand {
+    background:
+        radial-gradient(
+            circle at 10% 0%,
+            rgba(135, 216, 176, 0.22),
+            transparent 12rem
+        ),
+        linear-gradient(145deg, #f0faf5, #ffffff 75%);
+}
+
+.sidebar-profile {
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        0 5px 14px rgba(32, 112, 78, 0.045);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.sidebar-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(32, 112, 78, 0.09);
+}
+
+.nav-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.nav-item:hover {
+    transform: translateX(3px);
+    border-color: rgba(47, 143, 104, 0.12);
+    box-shadow: 0 5px 13px rgba(32, 112, 78, 0.06);
+}
+
+.nav-item.active {
+    border-color: rgba(47, 143, 104, 0.12);
+    box-shadow:
+        inset 3px 0 0 var(--w3d-green),
+        0 5px 14px rgba(32, 112, 78, 0.055);
+}
+
+/* Topbar: glass surface with restrained depth */
+.teacher-topbar {
+    background: rgba(248, 253, 250, 0.86) !important;
+    border-bottom: 1px solid rgba(47, 143, 104, 0.13) !important;
+    box-shadow: 0 8px 26px rgba(25, 75, 54, 0.055) !important;
+    backdrop-filter: blur(20px) saturate(135%);
+    -webkit-backdrop-filter: blur(20px) saturate(135%);
+}
+
+/* Welcome: layered 3D stage */
+.welcome-card {
+    min-height: 260px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background:
+        radial-gradient(
+            ellipse at 84% 18%,
+            rgba(174, 255, 218, 0.24),
+            transparent 18rem
+        ),
+        radial-gradient(
+            ellipse at 58% 115%,
+            rgba(71, 193, 139, 0.30),
+            transparent 23rem
+        ),
+        linear-gradient(125deg, #104b38 0%, #207957 54%, #329a70 100%);
+    box-shadow:
+        0 24px 48px rgba(22, 93, 63, 0.20),
+        0 8px 18px rgba(22, 93, 63, 0.09),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+    transform-style: preserve-3d;
+}
+
+/* Decorative dimensional light */
+.welcome-card::after {
+    width: 280px;
+    height: 280px;
+    right: -72px;
+    top: -96px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    box-shadow:
+        0 0 0 22px rgba(255, 255, 255, 0.025),
+        0 0 0 48px rgba(255, 255, 255, 0.018);
+    pointer-events: none;
+}
+
+.welcome-content {
+    transform: translateZ(18px);
+}
+
+.welcome-badge {
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(8px);
+}
+
+.welcome-card h2 {
+    font-size: clamp(24px, 2.3vw, 32px);
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.welcome-card h2 span {
+    color: #c9f5df;
+}
+
+.welcome-card p {
+    max-width: 520px;
+    line-height: 1.8;
+}
+
+.welcome-card .primary-btn {
+    margin-top: 14px;
+    padding: 12px 17px;
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffffff, #e5f8ed);
+    color: #17583e;
+    font-weight: 750;
+    box-shadow:
+        0 7px 0 rgba(9, 57, 39, 0.22),
+        0 12px 22px rgba(4, 42, 28, 0.17);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.welcome-card .primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 0 rgba(9, 57, 39, 0.16),
+        0 17px 27px rgba(4, 42, 28, 0.20);
+}
+
+/* Actual 3D model: keep it above decorative layers */
+.welcome-visual,
+.welcome-3d-frame {
+    transform-style: preserve-3d;
+}
+
+.welcome-3d-model {
+    filter: drop-shadow(0 16px 13px rgba(4, 39, 27, 0.20));
+}
+
+/* Floating stat cards */
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(47, 143, 104, 0.14);
+    background: linear-gradient(145deg, #ffffff 0%, #fbfefc 100%);
+    box-shadow:
+        0 7px 0 rgba(35, 112, 82, 0.035),
+        0 12px 25px rgba(25, 75, 54, 0.055),
+        inset 0 1px 0 #ffffff;
+    transform: translateY(0);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #2f8f68,
+        #b8ebd0,
+        transparent
+    );
+    opacity: 0.72;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(47, 143, 104, 0.28);
+    box-shadow: var(--w3d-shadow-hover);
+}
+
+.stat-icon {
+    border: 1px solid rgba(47, 143, 104, 0.10);
+    background: linear-gradient(145deg, #e5f7ed, #d1efdf);
+    box-shadow:
+        0 5px 12px rgba(47, 143, 104, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Dashboard panels */
+.dashboard-card,
+.form-card,
+.mini-stat-card,
+.progress-main-card,
+.ai-progress-card,
+.session-card,
+.resource-card,
+.settings-card {
+    border: 1px solid var(--w3d-line);
+    border-radius: 17px;
+    background: linear-gradient(145deg, #ffffff 0%, #fcfefc 100%);
+    box-shadow:
+        0 8px 22px rgba(25, 75, 54, 0.045),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    transition:
+        transform 0.24s ease,
+        box-shadow 0.24s ease,
+        border-color 0.24s ease;
+}
+
+.dashboard-card:hover,
+.resource-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(47, 143, 104, 0.25);
+    box-shadow: var(--w3d-shadow-hover);
+}
+
+.card-header {
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(47, 143, 104, 0.09);
+}
+
+/* Course performance progress */
+.progress-bar,
+.course-progress,
+.large-progress-bar {
+    background: #e8f0eb;
+    box-shadow: inset 0 2px 4px rgba(22, 70, 48, 0.06);
+}
+
+.progress-bar span,
+.course-progress span,
+.large-progress-bar span {
+    background: linear-gradient(90deg, #27835c, #65c594);
+    box-shadow: 0 0 10px rgba(65, 190, 139, 0.16);
+}
+
+/* AI insights: a distinct but consistent surface */
+.ai-insights-card {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(100, 211, 158, 0.17),
+            transparent 16rem
+        ),
+        linear-gradient(145deg, #effaf4, #ffffff 72%);
+}
+
+.ai-insights-card::after {
+    content: "";
+    position: absolute;
+    width: 115px;
+    height: 115px;
+    right: -55px;
+    bottom: -60px;
+    border: 1px solid rgba(47, 143, 104, 0.13);
+    border-radius: 50%;
+    box-shadow: 0 0 0 14px rgba(47, 143, 104, 0.025);
+    pointer-events: none;
+}
+
+.ai-insight {
+    border-color: rgba(47, 143, 104, 0.11);
+    box-shadow: 0 4px 12px rgba(25, 75, 54, 0.035);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-insight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(25, 75, 54, 0.07);
+}
+
+/* Course cards: raised surface and dimensional cover */
+.course-card {
+    border-color: var(--w3d-line);
+    box-shadow:
+        0 7px 0 rgba(35, 112, 82, 0.035),
+        0 12px 25px rgba(25, 75, 54, 0.05);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--w3d-shadow-hover);
+}
+
+.course-card-icon {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 25% 20%,
+            #ffffff,
+            transparent 42%
+        ),
+        linear-gradient(145deg, #e3f6eb, #c8ead8);
+    text-shadow: 0 5px 12px rgba(35, 112, 82, 0.15);
+}
+
+.course-card-body {
+    background: linear-gradient(180deg, #ffffff, #fcfefc);
+}
+
+/* Inputs and buttons: tactile feedback */
+.form-group input,
+.form-group select,
+.form-group textarea,
+.table-search {
+    border-color: #dce9e2;
+    box-shadow: inset 0 1px 3px rgba(25, 75, 54, 0.025);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.table-search:focus {
+    border-color: #55b788;
+    box-shadow:
+        0 0 0 4px rgba(70, 173, 126, 0.11),
+        0 5px 14px rgba(47, 143, 104, 0.05);
+}
+
+.secondary-btn,
+.text-btn,
+.form-actions button[type="submit"] {
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.secondary-btn:hover,
+.form-actions button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(47, 143, 104, 0.12);
+}
+
+/* Tables: clearer hierarchy */
+.activity-table thead,
+.students-table thead {
+    background: linear-gradient(90deg, #f0f8f3, #f8fcf9);
+}
+
+.activity-table th,
+.students-table th {
+    border-bottom-color: #dcebe2;
+}
+
+.activity-table tbody tr,
+.students-table tbody tr {
+    transition: background 0.18s ease;
+}
+
+.activity-table tbody tr:hover,
+.students-table tbody tr:hover {
+    background: #f5fbf7;
+}
+
+/* Modal: layered overlay */
+.modal-overlay {
+    background: rgba(12, 37, 26, 0.55);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.modal-card {
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow:
+        0 30px 80px rgba(8, 36, 24, 0.22),
+        0 8px 24px rgba(8, 36, 24, 0.12);
+}
+
+/* Accessibility: avoid excessive motion */
+@media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .sidebar-profile,
+    .stat-card,
+    .dashboard-card,
+    .resource-card,
+    .course-card,
+    .ai-insight,
+    .welcome-card .primary-btn {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* Mobile: preserve readability and avoid heavy effects */
+@media (max-width: 800px) {
+    .welcome-card {
+        min-height: 220px;
+        padding: 22px;
+    }
+
+    .stat-card:hover,
+    .dashboard-card:hover,
+    .resource-card:hover,
+    .course-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .teacher-sidebar {
+        box-shadow: 18px 0 40px rgba(16, 61, 42, 0.12);
+    }
+}
+
+@media (max-width: 560px) {
+    .welcome-card {
+        border-radius: 16px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .dashboard-card,
+    .form-card,
+    .settings-card,
+    .progress-main-card,
+    .ai-progress-card {
+        border-radius: 14px;
+    }
+}

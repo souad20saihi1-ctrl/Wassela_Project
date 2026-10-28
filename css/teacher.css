@@ -3491,3 +3491,129 @@ ul {
     }
 }
 
+/* =========================================================
+   WASSLA — DASHBOARD CARD OVERLAP FIX
+   ========================================================= */
+
+#dashboard,
+#dashboard * {
+    box-sizing: border-box;
+}
+
+#dashboard .stats-grid,
+#dashboard .dashboard-grid,
+#dashboard .course-grid,
+#dashboard .resource-grid {
+    width: 100%;
+    min-width: 0;
+    gap: 24px;
+}
+
+#dashboard .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+}
+
+#dashboard .dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: start;
+}
+
+#dashboard .course-grid,
+#dashboard .resource-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+}
+
+#dashboard .stat-card,
+#dashboard .dashboard-card,
+#dashboard .course-card,
+#dashboard .resource-card {
+    min-width: 0;
+    max-width: 100%;
+}
+
+#dashboard .dashboard-card,
+#dashboard .stat-card,
+#dashboard .course-card {
+    overflow-wrap: anywhere;
+}
+
+#dashboard .welcome-card {
+    width: 100%;
+    min-width: 0;
+    gap: 28px;
+    align-items: center;
+}
+
+#dashboard .welcome-content,
+#dashboard .welcome-visual {
+    min-width: 0;
+    max-width: 100%;
+}
+
+#dashboard .wassla-model-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+#dashboard .wassla-model-card model-viewer {
+    display: block;
+    width: 100%;
+    height: 300px;
+}
+
+#dashboard .activity-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+#dashboard .activity-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+@media (max-width: 1100px) {
+    #dashboard .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #dashboard .dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #dashboard .course-grid,
+    #dashboard .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    #dashboard .stats-grid,
+    #dashboard .course-grid,
+    #dashboard .resource-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #dashboard .welcome-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    #dashboard .wassla-model-card model-viewer {
+        height: 230px;
+    }
+
+    #dashboard .dashboard-card,
+    #dashboard .stat-card,
+    #dashboard .course-card {
+        padding: 18px;
+    }
+}
+

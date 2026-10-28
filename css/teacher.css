@@ -2270,24 +2270,28 @@ ul {
    RESPONSIVE — TABLET
    ========================================================= */
 
+/* Tablet */
 @media (max-width: 1100px) {
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .teacher-content {
+        padding: 22px;
     }
 
-    .course-grid {
-        grid-template-columns: repeat(2, 1fr);
+    #dashboard .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .resource-grid {
-        grid-template-columns: repeat(2, 1fr);
+    #dashboard .dashboard-grid,
+    #dashboard .course-grid,
+    #dashboard .resource-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .dashboard-grid {
-        grid-template-columns: 1fr;
+    #dashboard .welcome-card {
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr) !important;
+        padding: 22px !important;
     }
 }
+
 
 /* =========================================================
    RESPONSIVE — MOBILE

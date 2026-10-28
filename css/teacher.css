@@ -3491,3 +3491,35 @@ ul {
     }
 }
 
+/* Fix: Teacher Dashboard welcome card */
+#dashboard .welcome-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: relative !important;
+    margin: 0 0 24px 0 !important;
+    padding: 28px !important;
+}
+
+#dashboard .welcome-card * {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+
+#dashboard .welcome-card h1,
+#dashboard .welcome-card h2,
+#dashboard .welcome-card p {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+    #dashboard .welcome-card {
+        padding: 18px !important;
+    }
+}
+
